@@ -31,4 +31,12 @@ export class DashboardComponent implements OnInit {
     }];
   }
 
+  doRateUp(book: Book) {
+    console.log(book, 'muss gut bewertet werden!');
+  }
+
+  doRateDown(book: Book) {
+    console.log(book, 'muss schlecht bewertet werden!');
+
+  }
 }
