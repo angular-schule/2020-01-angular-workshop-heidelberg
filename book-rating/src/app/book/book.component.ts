@@ -10,4 +10,14 @@ import { Book } from '../shared/book';
 export class BookComponent {
 
   @Input() book: Book;
+
+  doRateUp() {
+    debugger
+  }
+
+  doRateDown() {
+
+  }
 }
+
+
