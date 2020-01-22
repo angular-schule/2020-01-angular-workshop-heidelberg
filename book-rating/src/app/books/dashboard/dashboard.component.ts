@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Book } from '../shared/book';
+import { BookRatingService } from '../shared/book-rating.service';
 
 @Component({
   selector: 'br-dashboard',
@@ -12,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
   books: Book[];
 
-  constructor() { }
+  constructor(private br: BookRatingService) { }
 
   ngOnInit() {
     this.books = [{
@@ -34,11 +35,18 @@ export class DashboardComponent implements OnInit {
   }
 
   doRateUp(book: Book) {
-    console.log(book, 'muss gut bewertet werden!');
+    const ratedBook = this.br.rateUp(book);
+    this.update(ratedBook);
   }
 
   doRateDown(book: Book) {
-    console.log(book, 'muss schlecht bewertet werden!');
+    const ratedBook = this.br.rateDown(book);
+    this.update(ratedBook);
+  }
 
+  update(ratedBook: Book) {
+    this.books = this.books
+      .map(book => book.isbn === ratedBook.isbn ? ratedBook : book)
+      .sort((a, b) => b.rating - a.rating);
   }
 }
