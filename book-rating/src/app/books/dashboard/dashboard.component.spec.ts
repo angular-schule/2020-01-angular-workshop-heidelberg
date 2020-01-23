@@ -45,5 +45,6 @@ describe('DashboardComponent', () => {
     component.doRateUp({ isbn: '000'} as Book);
 
     expect(rs.rateUp).toHaveBeenCalled();
+    expect(rs.rateUp).toHaveBeenCalledWith()
   });
 });
