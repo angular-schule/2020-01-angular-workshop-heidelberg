@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
+import { BookComponent } from '../book/book.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,7 +9,13 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      declarations: [
+        DashboardComponent,
+        BookComponent
+      ],
+
+      // shallow unit test
+      // schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
