@@ -18,3 +18,9 @@ function close2() {
 
 /********************************************/
 
+connect2()
+  .then(() => console.log('Connected'))
+  .then(() => read2())
+  .then(() => console.log('Read'))
+  .then(() => close2())
+  .then(() => console.log('Closed'));

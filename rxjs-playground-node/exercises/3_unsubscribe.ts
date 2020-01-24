@@ -8,4 +8,10 @@ const subscription = simpleTimer$.subscribe(
 
 /******************************/
 
-// TODO: Unsubscribe after timeout
+// in angular:
+// ngOnDestroy() {
+//   this.destroy$.next();
+// }
+
+// oder: takeWhile / takeUntil
+subscription.unsubscribe();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'br-book-details',
@@ -15,6 +16,10 @@ export class BookDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap
       .subscribe(paramMap => this.isbn = paramMap.get('isbn'));
+
+    interval(500).subscribe(i => console.log(i));
+
   }
+
 
 }

@@ -12,3 +12,17 @@ function close1(callback) {
 
 /**********************************/
 
+connect1((err, value) => {
+  if (err) { return; }
+  console.log('Connected');
+
+  read1((err, value) => {
+    console.log('Read');
+
+    close1((err, value) => {
+      console.log('Closed');
+    });
+  });
+})
+
+
