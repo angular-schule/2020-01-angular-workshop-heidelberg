@@ -4,7 +4,7 @@
   <button (click)="showDetails = true">Details</button>
 
   <div *ngIf="showDetails">
-    <h3>Huhu: book.isbn }}</h3>
+    <h3>Huhu: {{ book.isbn }}</h3>
   </div>
 
   <p>{{ book.description }}</p>
@@ -16,5 +16,5 @@
   (aufs erste Buch)
 </ng-template>
 
-<a routerLink="/book/9999">got to 999</a>
+<a routerLink="/book/9999">got to 999</a><br>
 <a routerLink="/book/9783864902079">got to 9783864902079</a>
