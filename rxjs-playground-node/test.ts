@@ -1,0 +1,1 @@
+console.log('TypeScript execution and REPL for node works! 😀')

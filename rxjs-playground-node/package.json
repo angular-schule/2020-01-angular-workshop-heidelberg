@@ -1,0 +1,28 @@
+{
+  "name": "exercises-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ts-node": "ts-node",
+    "test": "ts-node test",
+    "test:everything": "npm run test && npm run test:0 && npm run test:1 && npm run test:2 && npm run test:3 && npm run test:4 && npm run test:5 && npm run test:6",
+    "test:0": "ts-node exercises/0_callbacks",
+    "test:1": "ts-node exercises/1_promises",
+    "test:2": "ts-node exercises/2_subscribe",
+    "test:3": "ts-node exercises/3_unsubscribe",
+    "test:4": "ts-node exercises/4_new-observable",
+    "test:5": "ts-node exercises/5_creation-functions",
+    "test:6": "ts-node exercises/6_operators"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rxjs": "^6.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
+}
