@@ -15,8 +15,6 @@ export class BookDetailsComponent implements OnInit {
   book$ = this.route.paramMap.pipe(
     map(paramMap => paramMap.get('isbn')),
     switchMap(x => this.bs.getSingle(x)),
-    // share()
-    shareReplay()
   );
 
   showDetails = false;
