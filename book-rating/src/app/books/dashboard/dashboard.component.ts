@@ -3,23 +3,24 @@ import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
 import { BookStoreService } from '../shared/book-store.service';
 
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { State } from '../reducers/book.reducer';
 import { loadBooks } from '../actions/book.actions';
+import { selectBooksLoading, selectBooks } from '../selectors/book.selectors';
 
 @Component({
   selector: 'br-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  // WARNUNG: führt zu einem Bug, wenn wir AJAX machen
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
 
-  books: Book[] = [];
+  loading$ = this.store.pipe(select(selectBooksLoading));
+  books$ = this.store.pipe(select(selectBooks));
 
   constructor(private store: Store<State>) {
-    this.store.dispatch(loadBooks());
+    // this.store.dispatch(loadBooks());
   }
 
   ngOnInit() {
@@ -40,9 +41,9 @@ export class DashboardComponent implements OnInit {
   }
 
   update(ratedBook: Book) {
-    this.books = this.books
-      .map(book => book.isbn === ratedBook.isbn ? ratedBook : book)
-      .sort((a, b) => b.rating - a.rating);
+    // this.books = this.books
+    //   .map(book => book.isbn === ratedBook.isbn ? ratedBook : book)
+    //   .sort((a, b) => b.rating - a.rating);
   }
 
   doCreate(newBook: Book) {
