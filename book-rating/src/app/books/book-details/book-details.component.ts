@@ -12,17 +12,13 @@ import { BookStoreService } from '../shared/book-store.service';
 })
 export class BookDetailsComponent implements OnInit {
 
-  title: string;
+  book$ = this.route.paramMap.pipe(
+    map(paramMap => paramMap.get('isbn')),
+    switchMap(x => this.bs.getSingle(x))
+  );
 
   constructor(private route: ActivatedRoute, private bs: BookStoreService) { }
 
   ngOnInit() {
-    this.route.paramMap.pipe(
-      map(paramMap => paramMap.get('isbn')),
-      switchMap(x => this.bs.getSingle(x))
-    )
-    .subscribe(book => this.title = book.title);
   }
-
-
 }
