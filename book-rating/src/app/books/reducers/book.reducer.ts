@@ -1,14 +1,17 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as BookActions from '../actions/book.actions';
+import { Book } from '../shared/book';
 
 export const bookFeatureKey = 'book';
 
 export interface State {
-
+  books: Book[];
+  loading: boolean;
 }
 
 export const initialState: State = {
-
+  books: [],
+  loading: false,
 };
 
 const bookReducer = createReducer(
